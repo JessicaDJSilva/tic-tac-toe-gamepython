@@ -48,13 +48,14 @@ def who_goes_first():
         return False
 
 # sleep funtion so the game do not run so fast
+
 def sleep_input(string):
   """
    function to slow down the game.
   """
-  input_str = input(string)
-     time.sleep(0.5)
-        return input_str
+    input_str = input(string)
+    time.sleep(0.5)
+    return input_str
 
 
 # check if data on input is valid 
@@ -92,6 +93,7 @@ def player_move(computer_board, player_board, player_move):
         return None, False
 
 
+# Defines the computer move randon.
 
 def get_computer_moveset():
     """
@@ -116,7 +118,20 @@ def computer_move(computer_moves, player_board, computer_board):
             return computer_board | (1 << computer_move), computer_moves
     return computer_board, computer_moves
 
+# check  fot win funtion.
 
+def check_win(win_conditions, computer_board, player_board):
+"""
+Fuction check for win or tie using bit manipulation. 
+"""    
+    for win_condition in win_conditions:
+        if win_condition & player_board == win_condition:
+            return "player"
+        elif win_condition & computer_board == win_condition:
+            return "computer"
+        elif computer_board & player_board == 0b111111111:
+            return "tie"
+    return ""
 
 
 
