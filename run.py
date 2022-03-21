@@ -1,6 +1,7 @@
 import random
+import time
 
-
+# board game 
 def print_board(computer_board, player_board):
 
     """
@@ -23,6 +24,17 @@ def print_board(computer_board, player_board):
             board_positions.append(" ")
     print(board_string.format(*board_positions))
 
+# decide who goes first with the coin flip function 
+def who_goes_first():
+    coin_choice = validate_and_input("To decide who goes first, lets flip a coin, (h)eads or (t)ails?", ['h', 't'])
+    print("flipping coin...\n")
+    time.sleep(1)
+    if (random.randint(0, 2) == 1 and coin_choice == 'h') or (random.randint(0, 2) == 0 and coin_choice == 't'):
+        print("Good guess, you go first!\n")
+        return True
+    else:
+        print("Better luck next time, computer goes first\n")
+        return False
 
 def main():
     print("----------------\nWelcome to tic-tac-toe!\n----------------\n")
