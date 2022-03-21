@@ -49,12 +49,12 @@ def who_goes_first():
 
 # sleep funtion so the game do not run so fast
 def sleep_input(string):
-"""
-function to slow down the game.
-"""
-    input_str = input(string)
-    time.sleep(0.5)
-    return input_str
+  """
+   function to slow down the game.
+  """
+  input_str = input(string)
+     time.sleep(0.5)
+        return input_str
 
 
 # check if data on input is valid 
@@ -92,7 +92,17 @@ def player_move(computer_board, player_board, player_move):
         return None, False
 
 
-# function to define computer move 
+
+def get_computer_moveset():
+    """
+    Funtion to define the computer move random
+    """
+    computer_moves = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    random.shuffle(computer_moves)
+    return computer_moves
+
+
+# function to define computer move on the board.
 
 def computer_move(computer_moves, player_board, computer_board):
     """
