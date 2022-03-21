@@ -1,7 +1,9 @@
 import random
 import time
 
-# board game 
+# board game
+
+
 def print_board(computer_board, player_board):
 
     """
@@ -24,17 +26,52 @@ def print_board(computer_board, player_board):
             board_positions.append(" ")
     print(board_string.format(*board_positions))
 
-# decide who goes first with the coin flip function 
+
+# decide who goes first with the coin flip function
 def who_goes_first():
-    coin_choice = validate_and_input("To decide who goes first, lets flip a coin, (h)eads or (t)ails?", ['h', 't'])
+
+    """
+    Fuction to flip a coin to decide who go first.
+    """
+    coin_choice = validate_and_input(
+        "To decide who goes first, lets flip a coin, (h)eads or (t)ails?", ["h", "t"]
+    )
     print("flipping coin...\n")
     time.sleep(1)
-    if (random.randint(0, 2) == 1 and coin_choice == 'h') or (random.randint(0, 2) == 0 and coin_choice == 't'):
+    if (random.randint(0, 2) == 1 and coin_choice == "h") or (
+        random.randint(0, 2) == 0 and coin_choice == "t"
+    ):
         print("Good guess, you go first!\n")
         return True
     else:
         print("Better luck next time, computer goes first\n")
         return False
+
+
+def sleep_input(string):
+    input_str = input(string)
+    time.sleep(0.5)
+    return input_str
+
+
+# check if data on input is valid 
+def validate_and_input(string, valid_input):
+
+    """
+    Funtion to check if data is valid 
+    """
+    input = '----'
+    while input not in valid_input:
+        input = sleep_input(string)
+    return input
+
+
+# ask for player move 
+def get_player_move():
+    return int(validate_and_input("""Choose your move 0,1,2
+                 3,4,5
+                 6,7,8\n""", ['0', '1', '2', '3', '4', '5', '6', '7', '8']))
+
 
 def main():
     print("----------------\nWelcome to tic-tac-toe!\n----------------\n")
