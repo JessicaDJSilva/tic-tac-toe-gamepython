@@ -1,1 +1,3 @@
-# Your requirements go here
+black==22.1.0
+click==8.0.4
+pathspec==0.9.0
