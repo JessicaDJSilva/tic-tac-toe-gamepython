@@ -49,6 +49,7 @@ def who_goes_first():
 
 # sleep funtion so the game do not run so fast
 
+
 def sleep_input(string):
     """
    function to slow down the game.
@@ -120,6 +121,7 @@ def computer_move(computer_moves, player_board, computer_board):
 
 # check  fot win funtion.
 
+
 def check_win(win_conditions, computer_board, player_board):
     """
     Fuction check for win or tie using bit manipulation. 
@@ -148,9 +150,12 @@ def get_constants():
                   0b100010001,
                   0b001010100], get_computer_moveset()
 
-# board after player move 
+# board after player move.
 
 def get_player_board_after_move(computer_board, player_board):
+    """
+ Show board uptaded after player move.
+    """  
     success = False
     while not success:
         move = get_player_move()
@@ -158,9 +163,20 @@ def get_player_board_after_move(computer_board, player_board):
     return temp
 
 
-
-
-
+def check_and_act_on_end_conditions(player_board, computer_board, win_conditions):
+    """
+    Print messages if the game finish and check condion.
+    """
+    condition = check_win(win_conditions, computer_board, player_board)
+    if condition == '':
+        return False
+    if condition == "tie":
+        print("DRAW! Almost, but not quite 😐")
+    if condition == "player":
+        print("Ayyy, you won! Nice one 😊")
+    if condition == "computer":
+        print("You got beaten, damn 💩")
+    return True
 
 
 def main():
@@ -173,3 +189,18 @@ def main():
     print("\n_ _ _")
     print("_ _ _")
     print("_ _ _\n")
+    player_board, computer_board, win_conditions, computer_moves = get_constants()
+    is_player_turn = who_goes_first()
+    finished = False
+    while not finished:
+        if is_player_turn:
+            player_board = get_player_board_after_move(computer_board, player_board)
+        else:
+            computer_board, computer_moves = computer_move(computer_moves, player_board, computer_board)
+        print_board(computer_board, player_board)
+        is_player_turn = not is_player_turn
+        finished = check_and_act_on_end_conditions(player_board, computer_board, win_conditions)
+
+
+if __name__ == '__main__':
+    main()
