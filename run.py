@@ -212,7 +212,7 @@ def main():
     print("You will play against of the computer, Good Luck 👍\n")
     print(
         "Rule: The player who succeeds in placing three of their marks in a "
-        "horizontal, vertical, or diagonal row is the winner.\n")
+        "horizontal,/n vertical, or diagonal row is the winner.\n")
     print(
         "You need choose one move on the board."
         "This is how the board looks.\n")
