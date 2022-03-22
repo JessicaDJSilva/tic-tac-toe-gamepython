@@ -13,7 +13,7 @@ The game starts after the player choose between heads or tails.
 ####  Start of the game
 The user has a 50% chance to start the game by choosing heads or tails.
 if the computer wins on the flip coin it uptade with the first move on the board.
-<img src= images/start-of-the-game.jpg>
+<img src= images/start.jpg>
 ####  Invalid data
 If the user enters invalid data or in this case try place to move in the same place the computer will repeat the choose you move question until valid data is received. 
 <img src= images/choose-used-postion.jpg>
@@ -47,4 +47,4 @@ No unfixed bugs to report.
 
 ## Credit
 Code institute template was used.
-code institute for deployment terminal
+Code institute for deployment terminal
