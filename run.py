@@ -50,9 +50,9 @@ def who_goes_first():
 # sleep funtion so the game do not run so fast
 
 def sleep_input(string):
-  """
+    """
    function to slow down the game.
-  """
+    """
     input_str = input(string)
     time.sleep(0.5)
     return input_str
@@ -121,9 +121,9 @@ def computer_move(computer_moves, player_board, computer_board):
 # check  fot win funtion.
 
 def check_win(win_conditions, computer_board, player_board):
-"""
-Fuction check for win or tie using bit manipulation. 
-"""    
+    """
+    Fuction check for win or tie using bit manipulation. 
+    """    
     for win_condition in win_conditions:
         if win_condition & player_board == win_condition:
             return "player"
@@ -133,8 +133,29 @@ Fuction check for win or tie using bit manipulation.
             return "tie"
     return ""
 
+# constant for win fuction usin bit manipulation.
 
+def get_constants():
+    """
+    Fuction for win moves using bit manipulation.
+    """
+    return 0, 0, [0b111000000,
+                  0b000111000,
+                  0b000000111,
+                  0b100100100,
+                  0b010010010,
+                  0b001001001,
+                  0b100010001,
+                  0b001010100], get_computer_moveset()
 
+# board after player move 
+
+def get_player_board_after_move(computer_board, player_board):
+    success = False
+    while not success:
+        move = get_player_move()
+        temp, success = player_move(computer_board, player_board, move)
+    return temp
 
 
 
