@@ -10,11 +10,11 @@ def print_board(computer_board, player_board):
     Main function for print the board.
     """
     board_string = """
-     {0} | {1} | {2} 
-     -----------      
-     {3} | {4} | {5} 
-     -----------   
-     {6} | {7} | {8} 
+    {0} | {1} | {2}
+    -----------
+    {3} | {4} | {5}
+    -----------
+    {6} | {7} | {8}
      """
     board_positions = []
     for element in range(0, 9):
@@ -34,8 +34,9 @@ def who_goes_first():
     Fuction to flip a coin to decide who go first.
     """
     coin_choice = validate_and_input(
-        "To decide who goes first, lets flip a coin, (h)eads or (t)ails?", ["h", "t"]
-    )
+        "To decide who goes first,lets flip a coin, (h)eads or (t)ails?",
+        ["h", "t"]
+        )
     print("flipping coin...\n")
     time.sleep(1)
     if (random.randint(0, 2) == 1 and coin_choice == "h") or (
@@ -59,11 +60,11 @@ def sleep_input(string):
     return input_str
 
 
-# check if data on input is valid 
+# check if data on input is valid.
 def validate_and_input(string, valid_input):
 
     """
-    Funtion to check if data is valid 
+    Funtion to check if data is valid.
     """
     input = '----'
     while input not in valid_input:
@@ -71,7 +72,7 @@ def validate_and_input(string, valid_input):
     return input
 
 
-# ask for player move 
+# ask for player move.
 def get_player_move():
     """
 Function to aask the player move.
@@ -124,8 +125,8 @@ def computer_move(computer_moves, player_board, computer_board):
 
 def check_win(win_conditions, computer_board, player_board):
     """
-    Fuction check for win or tie using bit manipulation. 
-    """    
+    Fuction check for win or tie using bit manipulation.
+    """
     for win_condition in win_conditions:
         if win_condition & player_board == win_condition:
             return "player"
@@ -136,6 +137,7 @@ def check_win(win_conditions, computer_board, player_board):
     return ""
 
 # constant for win fuction usin bit manipulation.
+
 
 def get_constants():
     """
@@ -152,10 +154,11 @@ def get_constants():
 
 # board after player move.
 
+
 def get_player_board_after_move(computer_board, player_board):
     """
  Show board uptaded after player move.
-    """  
+    """
     success = False
     while not success:
         move = get_player_move()
@@ -163,7 +166,8 @@ def get_player_board_after_move(computer_board, player_board):
     return temp
 
 
-def check_and_act_on_end_conditions(player_board, computer_board, win_conditions):
+def check_and_act_on_end_conditions
+ (player_board, computer_board, win_conditions):
     """
     Print messages if the game finish and check condion.
     """
@@ -178,28 +182,34 @@ def check_and_act_on_end_conditions(player_board, computer_board, win_conditions
         print("You got beaten, damn 💩")
     return True
 
+# main fuction to call the anothers fuction and while loop.
+
 
 def main():
     print("----------------\nWelcome to tic-tac-toe!\n----------------\n")
     print("You will play against of the computer, Good Luck 👍\n")
-    print(
-        "Rule: The player who succeeds in placing three of their marks in a\n horizontal, vertical, or diagonal row is the winner.\n"
-    )
-    print("You need choose one move on the board.\n This is how the board looks.\n")
+    print("Rule: The player who succeeds in placing three of their marks in a
+          horizontal, vertical, or diagonal row is the winner.\n")
+    print("You need choose one move on the board.\n
+          This is how the board looks.\n")
     print("\n_ _ _")
     print("_ _ _")
     print("_ _ _\n")
-    player_board, computer_board, win_conditions, computer_moves = get_constants()
+    player_board, computer_board, win_conditions,
+    computer_moves = get_constants()
     is_player_turn = who_goes_first()
     finished = False
     while not finished:
         if is_player_turn:
-            player_board = get_player_board_after_move(computer_board, player_board)
+            player_board = get_player_board_after_move
+            (computer_board, player_board)
         else:
-            computer_board, computer_moves = computer_move(computer_moves, player_board, computer_board)
+            computer_board, computer_moves = computer_move
+            (computer_moves, player_board, computer_board)
         print_board(computer_board, player_board)
         is_player_turn = not is_player_turn
-        finished = check_and_act_on_end_conditions(player_board, computer_board, win_conditions)
+        finished = check_and_act_on_end_conditions
+        (player_board, computer_board, win_conditions)
 
 
 if __name__ == '__main__':
