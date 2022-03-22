@@ -1,31 +1,49 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome JessicaDJSilva,
+## Tic-Tac-Toe 
+The tic-tac-toe game is a python terminal game, the aim of the game is to place three marks "X" or "O" in a "horizontal, vertical, or diagonal row.
+You can play the game [here](https://tic-tac-toe-pp3.herokuapp.com/)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Features
 
-## Reminders
+#### How to play
+Before starting the game, the user has a welcome message and clear instructions on how the game works and what is needed to do to win.
+The user can see an example of the playboard before the game starts.
+The game starts after the player choose between heads or tails.
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+####  Start of the game
+The user has a 50% chance to start the game by choosing heads or tails.
+if the computer wins on the flip coin it uptade with the first move on the board.
 
-## Creating the Heroku app
+####  Invalid data
+If the user enters invalid data or in this case try place to move in the same place the computer will repeat the choose you move question until valid data is received. 
+####  Game Results
+The user will receive a different message depending on how the game finishes.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Testing
+I have manually tested the project by doing.
+ - Pass the code on PEP8 and confirm that was no error
+ - The website works in the 3 main browsers: Chrome, Edge, Firefox.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Bugs
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+ -The game was running too fast, so I import the time library and added sleep time into the functions to give it more time to run.
+ - Some of the lines was too long considering the 80 characters maximum, I fixed instaling black to handle the formation.
+ - 
+ - 
+## Deployment
+To deploy my game on Heroku I follow the steps.
+ -   Added my requirements on requirements.txt on gitpod
+ - Create a new app on the initial page of Heroku and connected it with Github.
+ - Search for my tic-tac-toe on the repositories.
+ - After liking my repositories, clicked on settings and added Config Vars key PORT and value 8000.
+ - Also added python and nodejs in Buildpacks.
+ - On the Deployment tab the option Automatic deploys were selected giving me the [link](https://tic-tac-toe-pp3.herokuapp.com/) when fished.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## Unfixed bugs
+No unfixed bugs to report.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+## Credit
+Code institute template was used.
+code institute for deployment terminal
